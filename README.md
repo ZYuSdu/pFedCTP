@@ -16,12 +16,12 @@ We use the same dataset as
   
 ## Training  
   ```python
-# run pFedCTP
-python main.py 
+# run pFedCTP 
+python main.py --algo=pFedCTP  --lr=0.01 --batch_size=32  --target_city=shenzhen --num_rounds=90  --gcn_layers=1
 # run pFedCTP-woF
-python main.py
+python main.py --algo=pFedCTP-woF  --lr=0.01 --batch_size=32  --target_city=shenzhen --num_rounds=90  --local_epochs=150 --gcn_layers=1
 # run pFedCTP-Trans
-python main.py
+python main.py --algo=pFedCTP-Trans  --lr=0.01 --batch_size=32  --target_city=shenzhen --num_rounds=90  --target_epochs=50 --local_epochs=150 --gcn_layers=1
    ```
   
 ## Citation  
