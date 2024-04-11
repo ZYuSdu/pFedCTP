@@ -12,7 +12,7 @@
   
 ## Datasets  
   
-We use the same dataset as 
+Please refer to [ST-GFSL](https://github.com/RobinLu1209/ST-GFSL)
   
 ## Training  
   ```python
@@ -25,4 +25,4 @@ python main.py --algo=pFedCTP-Trans  --lr=0.01 --batch_size=32  --target_city=sh
    ```
   
 ## Citation  
-  If you find this repository, e.g., the paper, code and the datasets, useful in your research, please cite the following paper:
+  If you find this repository, e.g., the paper, code, and the datasets, useful in your research, please cite the following paper:
