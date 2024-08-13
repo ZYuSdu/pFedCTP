@@ -1,5 +1,5 @@
 # Personalized Federated Learning for Cross-city Traffic Prediction 
-  <img src="pFedCTP.png">
+  <img src="pfedctp.png">
 
 ## Requirements
   
