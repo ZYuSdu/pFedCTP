@@ -34,10 +34,10 @@ class BaseClient(object):
         for epoch in range(self.options['local_epochs']):
             self.model.train()
             data, _ = self.getSampledData()
+            self.optimizer.zero_grad()
             st_output = self.model(data)
             loss = self.calculate_loss(st_output, data.y)
             all_loss+=loss.item()
-            self.optimizer.zero_grad()
             loss.backward()
             self.optimizer.step()
         return self.name+':'+str(all_loss / self.options['local_epochs'])
@@ -151,11 +151,11 @@ class TargetClient(BaseClient):
                 data.str_init = self.train_dataset.str_init
                 data.edge_index = self.train_dataset.edge_index_list
                 data = data.cuda()
+                self.optimizer.zero_grad()
                 out = self.model(data)
                 loss = self.calculate_loss(out, data.y)
                 all_loss += loss.item()
                 count+=1
-                self.optimizer.zero_grad()
                 loss.backward()
                 self.optimizer.step()
         return self.name+':'+str(all_loss / count)
@@ -184,9 +184,9 @@ class TargetClient(BaseClient):
                 data.str_init = self.train_dataset.str_init
                 data.edge_index = self.train_dataset.edge_index_list
                 data = data.cuda()
+                self.optimizer.zero_grad()
                 out = self.model(data)
                 loss = self.calculate_loss(out, data.y)
-                self.optimizer.zero_grad()
                 loss.backward()
                 self.optimizer.step()
         q_metric = self.target_test()
